@@ -969,6 +969,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 019d87e7fd722bc43bf9af23c6af95af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathEffect: {fileID: 6054030299779617947, guid: fca4d6e700569224d909bd7cc1c8ef7b, type: 3}
   health: 0
   collectableCount: 0
 --- !u!1 &536410170
@@ -2307,7 +2308,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1317107974}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 16.91, y: 9.42, z: 0}
+  m_LocalPosition: {x: 16.91, y: 0.4, z: 0}
   m_LocalScale: {x: 3.9036002, y: 0.5073, z: 3}
   m_Children: []
   m_Father: {fileID: 1598634179}
@@ -3168,11 +3169,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7435951236726123221, guid: 058eebdb2be8a524ea6d1708849bdc78, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.1
+      value: -9.34
       objectReference: {fileID: 0}
     - target: {fileID: 7435951236726123221, guid: 058eebdb2be8a524ea6d1708849bdc78, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.2
+      value: -5.79
       objectReference: {fileID: 0}
     - target: {fileID: 7435951236726123221, guid: 058eebdb2be8a524ea6d1708849bdc78, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3909,7 +3910,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2022325836}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.46, y: 18.32, z: 0}
+  m_LocalPosition: {x: 16.46, y: 13, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3944,7 +3945,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.060507774, y: 0.057136536}
+  m_Offset: {x: 0.034784317, y: 0.015760422}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -3955,7 +3956,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.4161396, y: 4.2935944}
+  m_Size: {x: 5.739109, y: 5.7125664}
   m_EdgeRadius: 0
 --- !u!1 &2076739021
 GameObject:
