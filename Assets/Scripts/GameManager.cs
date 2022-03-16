@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        Debug.Log("begin");
         if(_instance==null){
             _instance=this;
         }
@@ -29,7 +28,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        deathPanelOff();
+        //deathPanelOff();
         player=GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         player.reset();
     }
@@ -53,6 +52,19 @@ public class GameManager : MonoBehaviour
     public void deathPanelOn()
     {
         deathPanel.SetActive(true);
+    }
+
+    public void onRestartClick(){
+        if(deathPanel.activeSelf){
+            deathPanelOff();
+            player.reset();
+        }
+    }
+
+    public void onMenuClick(){
+        if(deathPanel.activeSelf){
+            SceneManager.LoadScene("MainMenu");
+        }
     }
 
 }

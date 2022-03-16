@@ -17,11 +17,13 @@ public class Enemy : MonoBehaviour
 
     private RaycastHit2D hit;
 
-
+    Player p;
 
     // Start is called before the first frame update
     void Start()
     {
+        p = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+
         rb = GetComponent<Rigidbody2D>();
         direction = -1;
         downRight = new Vector3(1f, -1f, 0f);
@@ -69,4 +71,13 @@ public class Enemy : MonoBehaviour
         velocity.x = maxSpeed * direction;
         rb.velocity = velocity;
     }
+
+    private void OnTriggerEnter2D(Collider2D collider) 
+    {
+        if(collider.tag == "Player")
+        {
+            p.loseHealth();
+        }
+    }
+
 }

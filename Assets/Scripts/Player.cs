@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    public GameObject deathEffect;
     public int health;
     public int collectableCount;
 
@@ -39,6 +40,17 @@ public class Player : MonoBehaviour
     public void setHeath(int num)
     {
         health = num;
+    }
+
+    public void loseHealth()
+    {
+        health -= 1;
+        if(health <= 0)
+        {
+            this.gameObject.SetActive(false);
+            Instantiate(deathEffect, new Vector3(transform.position.x, transform.position.y - 0.3f, -0.3f), Quaternion.identity);
+            GameManager.instance().deathPanelOn();
+        }
     }
 
 }
