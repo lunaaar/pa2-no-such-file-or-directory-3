@@ -6,8 +6,16 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     public GameObject deathEffect;
+    public LayerMask mask;
+
     public int health;
     public int collectableCount;
+    private float input;
+    private RaycastHit2D ground;
+    private bool airborne;
+    private RaycastHit2D wall;
+    public GameObject wallFX;
+    public GameObject landingFX;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +27,28 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        input = Input.GetAxisRaw("Horizontal");
+        if(input > 0) {
+            wall = Physics2D.Raycast(this.transform.position, Vector3.right, 2f, mask);
+        } else if (input < 0) {
+            wall = Physics2D.Raycast(this.transform.position, Vector3.left, 2f, mask);
+        }
+
+        ground = Physics2D.Raycast(this.transform.position, Vector3.down, 3.3f, mask);
+        if(wall.collider != null) { 
+            Instantiate(wallFX, new Vector3(transform.position.x + .8f, transform.position.y + 3f, 0f), Quaternion.identity);
+        }
+        if (ground.collider == null)
+        {
+            airborne = true;
+        }
+        else
+        {
+            if (airborne) {
+                Instantiate(landingFX, new Vector3(transform.position.x + 0f, transform.position.y - 2f, 0f), Quaternion.identity);
+                airborne = false;
+            }
+        }
     }
 
     public void increaseCollectableCount() {
