@@ -25,7 +25,7 @@ public class Collectable : MonoBehaviour
         {
             p.increaseCollectableCount();
             Instantiate(obtainEffect, new Vector3(transform.position.x, transform.position.y - 0.3f, -0.3f), Quaternion.identity);
-            GameObject.Destroy(gameObject);
+            this.gameObject.SetActive(false);
 
         }
     }

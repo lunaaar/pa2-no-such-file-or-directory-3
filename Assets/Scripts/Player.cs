@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         GameManager.instance().updateCountText(collectableCount);
-        GameManager.instance().deathPanelOff();
+        //GameManager.instance().deathPanelOff();
     }
 
     // Update is called once per frame
@@ -51,6 +51,18 @@ public class Player : MonoBehaviour
             Instantiate(deathEffect, new Vector3(transform.position.x, transform.position.y - 0.3f, -0.3f), Quaternion.identity);
             GameManager.instance().deathPanelOn();
         }
+    }
+
+    public int getCollectableCount()
+    {
+        return collectableCount;
+    }
+
+    public void victory()
+    {
+        this.gameObject.SetActive(false);
+        GameManager.instance().victoryPanelOn();
+
     }
 
 }

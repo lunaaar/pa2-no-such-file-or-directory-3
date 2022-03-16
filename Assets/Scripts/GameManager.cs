@@ -22,13 +22,15 @@ public class GameManager : MonoBehaviour
 
     public Text obtainCountText;
     public GameObject deathPanel;
+    public GameObject victoryPanel;
+    public GameObject[] keyInstances;
     Player player;
-
     
     // Start is called before the first frame update
     void Start()
     {
-        //deathPanelOff();
+        deathPanelOff();
+        victoryPanelOff();
         player=GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         player.reset();
     }
@@ -54,10 +56,28 @@ public class GameManager : MonoBehaviour
         deathPanel.SetActive(true);
     }
 
+    public void victoryPanelOff()
+    {
+        victoryPanel.SetActive(false);
+    }
+
+    public void victoryPanelOn()
+    {
+        victoryPanel.SetActive(true);
+    }
+
     public void onRestartClick(){
         if(deathPanel.activeSelf){
             deathPanelOff();
-            player.reset();
+        }
+        if(victoryPanel.activeSelf){
+            victoryPanelOff();
+        }
+        player.reset();
+
+        foreach(GameObject key in keyInstances)
+        {
+            key.SetActive(true);
         }
     }
 
